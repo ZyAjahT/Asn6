@@ -12,8 +12,8 @@
     <body> 
         <h1> Assignment 6: HTML Forms </h1>
         <!-- Select list -->
-        <label for="lang"> Please select your prefered a langauge: </label>
-        <select id="lang" name="lang"> 
+        <label for="user_input"> Please select your prefered a langauge: </label>
+        <select id="user_input" name="lang"> 
             <option value="Eng"> English </option>
             <option value="Es"> Spanish </option>
             <option value="Ger"> German </option>
@@ -24,11 +24,11 @@
         <form class="infobox">
             <fieldset>
                 <legend> <h1> Sign In: </h1> </legend>
-                <label for="username"> Username: </label> 
-                <input type="text" id="username" name="username">
+                <label for="user_input"> Username: </label> 
+                <input type="text" id="user_input" name="username">
     
-                <label for="passw"> Password: </label>
-                <input type="password" id="passw" name="passw"> 
+                <label for="user_input"> Password: </label>
+                <input type="password" id="user_input" name="passw"> 
             </fieldset>
         </form>
 
@@ -37,69 +37,82 @@
             <fieldset>
                 <legend> <h1>Personal Information:</h1> </legend>
                 <!-- Input first name -->
-                <label for="fname"> First Name: </label> 
-                <input type="text" id="fname" name="fname">
+                <label for="user_input"> First Name: </label> 
+                <input type="text" id="user_input" name="fname">
         
                 <!-- Input second name -->
-                <label for="sname"> Second Name: </label>
-                <input type="text" id="sname" name="sname"> <br>
+                <label for="user_input"> Second Name: </label>
+                <input type="text" id="user_input" name="sname"> <br>
 
                 <!--Email-->
-                <label for="email"> Enter your email:</label> 
-                <input type="email" id="email" name="email"> <br>
+                <label for="user_input"> Enter your email:</label> 
+                <input type="email" id="user_input" name="email"> <br>
 
                 <!--Select gender-->
                 <p> Select your gender:</p>
-                <input type="radio" id="gender" name="female" value="FEMALE">
-                <label for="gender"> Female </label> <br>
+                <input type="radio" id="user_input" name="female" value="FEMALE">
+                <label for="user_input"> Female </label> <br>
 
                 <input type="radio" id="male" name="gender" value="MALE">
-                <label for="gender"> Male </label> <br>
+                <label for="user_input"> Male </label> <br>
 
-                <input type="radio" id="anon" name="gender" value="ANON">
-                <label for="gender"> Perfer not to say </label> <br>
+                <input type="radio" id="user_input" name="gender" value="ANON">
+                <label for="user_input"> Perfer not to say </label> <br>
             </fieldset>
         </form>
 
-        <form class="infobox">
+        <form class="infobox" id="inputs">
             <fieldset>
                 <legend> <h1>About You:</h1></legend>
                 <!-- Text Area -->
                 <p> Please enter a short bio about yourself: </p>
-                <textarea name="bio" rows="10" cols="60"> </textarea> <br>
+                <textarea name="bio" rows="10" cols="60" id="user_input"> </textarea> <br>
 
                 <!--Checkbox-->
                 <p> Check all  your favorite animals:</p>
-                <input type="checkbox" id="animal1" name="animal1" value="cat">
-                <label for="animal1"> Cat </label> 
+                <input type="checkbox" id="user_input" name="animal1" value="cat">
+                <label for="user_input"> Cat </label> 
 
-                <input type="checkbox" id="animal2" name="animal2" value="dog">
-                <label for="animal2"> Dog </label> 
+                <input type="checkbox" id="user_input" name="animal2" value="dog">
+                <label for="user_input"> Dog </label> 
 
-                <input type="checkbox" id="animal3" name="animal3" value="bird">
-                <label for="animal3"> Bird </label> 
+                <input type="checkbox" id="user_input" name="animal3" value="bird">
+                <label for="user_input"> Bird </label> 
 
-                <input type="checkbox" id="animal4" name="animal4" value="ferret">
-                <label for="animal4"> Ferret </label> <br>
+                <input type="checkbox" id="user_input" name="animal4" value="ferret">
+                <label for="user_input"> Ferret </label> <br>
 
                 <!--Color-->
                 <label for="favcolor">What's your favorite color? </label> 
-                <input type="color" id="favcolor" name="favcolor"> 
+                <input type="color" id="user_input" name="favcolor"> 
 
                 <!--File-->
                 <p>Please upload your resume: </p>
                 <label for="myfile"> Select file:</label>
-                <input type="file" id="myfile" name="myfile"> <br>
+                <input type="file" id="user_input" name="myfile"> <br>
         </fieldset>
         </form>
 
         <!--Range-->
         <label for="rate"> Rate this webpage (between 1 through 10):</label>
-        <input type="range" id="rate" name="rate" min="1" max="10"> <br>
+        <input type="range" id="user_input" name="rate" min="1" max="10"> <br>
 
         <input type="reset" value="Reset" class="button"> <br>
-        <input type="submit" value="Submit Form" class="button">
+        <input type="submit" value="Submit Form" class="button"> <br>
 
+        <button onclick="Display()" id="disbtn"> Display Input </button>
+        <p id="output"></p>
+
+        <script>
+          const user = document.getElementById("user_input");
+          const btn1 = document.getElementById("disbtn");
+          const out = document.getElementById("output");
+
+          function Display(){
+            out.innerHTML = user.value; 
+          }
+          btn1.addEventListener('click',Display);
+        </script>
     </body>
 
 </html>
